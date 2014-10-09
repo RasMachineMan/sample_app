@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.8'
 gem 'bootstrap-sass'
+gem 'sprockets'
 
 group :development, :test do
 	gem 'sqlite3'
@@ -12,6 +13,7 @@ end
 group :test do
 	gem 'selenium-webdriver'
 	gem 'capybara'
+	gem 'factory_girl_rails'
 end
 
 group :production do
