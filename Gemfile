@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.8'
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
 	gem 'sqlite3'
