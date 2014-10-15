@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "StaticPages" do
+describe "Static Pages" do
 
 	let(:base_title) { "Ruby on Rails Tutorial Sample App" }
 
@@ -49,6 +49,21 @@ describe "StaticPages" do
 
 	it { should have_title(full_title("Help")) }
 
+    describe "for sign_in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+        FactoryGirl.create(:micropost, user: user, content: "Dlor sit ament")
+        sign_in user
+        visit root_path
+      end
+
+      it "should render the user's feed" do
+        user.feed.each do |item|
+          expect(page).to have_selector("li##{item.id}", text: item.content)
+        end
+      end
+    end
   end
 
   describe "About Page" do
